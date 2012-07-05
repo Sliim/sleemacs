@@ -18,6 +18,8 @@ Git repository :
 Install
 =======
 
+git clone https://github.com/Sliim/sleemacs.git --recursive
+
 *) Symlink:
 $ ln -s <path_to_sleemacs>/emacs.el ~/.emacs
 $ ln -s <path_to_sleemacs>/em.el ~/.em

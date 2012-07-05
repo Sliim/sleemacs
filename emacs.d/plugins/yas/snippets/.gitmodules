@@ -1,3 +1,0 @@
-[submodule "./php-mode"]
-        path = ./php-mode
-        url = https://github.com/Sliim/minimal-yasnippet-php-mode.git

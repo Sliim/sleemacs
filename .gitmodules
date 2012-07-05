@@ -1,0 +1,3 @@
+[submodule "emacs.d/plugins/yas/snippets/php-mode"]
+        path = emacs.d/plugins/yas/snippets/php-mode
+        url = https://github.com/Sliim/minimal-yasnippet-php-mode.git
