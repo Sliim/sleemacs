@@ -1,18 +1,8 @@
-Requirement packages:
-
-- auto-complete-el
-- ecb
-- cedet
-- yasnippet
-- anything-el
-
+TODO: use git modules
 Git repository :
  - php-mode : https://github.com/ejmr/php-mode.git
  - php+-mode : https://github.com/echosa/phpplus-mode
  - auto-complete-etags : https://github.com/whitypig/auto-complete-etags.git
-
-
-
 
 
 Install

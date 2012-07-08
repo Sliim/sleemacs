@@ -36,4 +36,5 @@
 (set-background-color "black")
 
 ;; PHP-Mode
+(add-to-list 'load-path "/opt/php-mode")
 (require 'php-mode)
