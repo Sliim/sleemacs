@@ -1,4 +1,5 @@
 (require 'cl)
+(add-to-list 'load-path "~/.emacs.d/plugins/cedet")
 (require 'cedet)
 '(recentf-mode t)
 '(transient-mark-mode t)
