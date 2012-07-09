@@ -1,19 +1,17 @@
 ;; PHP-Mode
 (add-to-list 'load-path "~/.emacs.d/plugins/php")
-(add-to-list 'load-path "/opt/php-mode")
+(add-to-list 'load-path "~/.emacs.d/plugins/php-mode")
 (require 'php-mode)
 (require 'php-electric)
 (require 'php-completion)
 
 ;; PHP+-mode
-;; Install : git clone https://github.com/echosa/phpplus-mode.git /opt/phpplus-mode
-(add-to-list  'load-path "/opt/phpplus-mode")
+(add-to-list  'load-path "~/.emacs.d/plugins/php-plusmode")
 ;(require 'php+-mode)
 ;(php+-mode-setup)
 (require 'php-test)
 (require 'php-project)
 (require 'php-tags)
-
 
 (setq php-manual-path "~/.emacs.d/php-manual")
 

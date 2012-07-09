@@ -36,5 +36,5 @@
 (set-background-color "black")
 
 ;; PHP-Mode
-(add-to-list 'load-path "/opt/php-mode")
+(add-to-list 'load-path "~/.emacs.d/plugins/php-mode")
 (require 'php-mode)
