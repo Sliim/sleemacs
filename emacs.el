@@ -25,6 +25,12 @@
   (set-background-color "black")
 )
 
+;;Small fix for selection with shift+up
+; More infos: http://lists.gnu.org/archive/html/help-gnu-emacs/2011-05/msg00174.html
+(if (equal "xterm" (tty-type))
+      (define-key input-decode-map "\e[1;2A" [S-up]))
+
+
 (visit-tags-table "~/tags/TAGS")
 
 (show-paren-mode t)
