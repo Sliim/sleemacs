@@ -59,6 +59,8 @@
 (load-file "~/.emacs.d/init/php.el")
 (load-file "~/.emacs.d/init/git.el")
 
+(global-set-key (kbd "C-<next>") 'next-buffer)
+(global-set-key (kbd "C-<prior>") 'previous-buffer)
 
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
