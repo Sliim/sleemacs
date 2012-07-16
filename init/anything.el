@@ -1,9 +1,9 @@
 ;; anything
-(add-to-list 'load-path "~/.emacs.d/plugins/anything")
+(add-to-list 'load-path "~/.emacs.d/sleemacs/plugins/anything")
 (require 'anything)
 
 ;; anything-rcodetools
-(add-to-list 'load-path "~/.emacs.d/plugins/rcodetools")
+(add-to-list 'load-path "~/.emacs.d/sleemacs/plugins/rcodetools")
 (require 'anything-rcodetools)
 (setq rct-get-all-methods-command "PAGER=cat fri -l -L")
 (define-key anything-map "\C-z" 'anything-execute-persistent-action)

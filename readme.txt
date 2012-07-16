@@ -1,15 +1,10 @@
 Install
 =======
 
-git clone https://github.com/Sliim/sleemacs.git --recursive
+$ git clone https://github.com/Sliim/sleemacs.git --recursive
+$ ln -s <path_to_sleemacs> ~/.emacs.d/sleemacs
 
-*) Symlink:
-$ ln -s <path_to_sleemacs>/emacs.el ~/.emacs
-$ ln -s <path_to_sleemacs>/em.el ~/.em
-$ ln -s <path_to_sleemacs>/emacs.d/init ~/.emacs.d/init
-$ ln -s <path_to_sleemacs>/emacs.d/php-manual ~/.emacs.d/php-manual
-$ ln -s <path_to_sleemacs>/emacs.d/plugins ~/.emacs.d/plugins
+Add in your `~/.emacs`:
+(load-file "~/.emacs.d/sleemacs/init.el")
 
-*) Alias:
-em='emacs -nw -Q --load ~/.em'
-emacs='emacs -fs --no-site-file'
+

@@ -1,7 +1,7 @@
 ;;TODO Cleanup
 
 ;; ruby-mode
-(add-to-list 'load-path "~/.emacs.d/plugins/ruby-mode")
+(add-to-list 'load-path "~/.emacs.d/sleemacs/plugins/ruby-mode")
 (require 'ruby-mode)
 (require 'ruby-electric)
 (add-hook 'ruby-mode-hook 'turn-on-font-lock)
@@ -19,9 +19,9 @@
 
 
 ;; ri-emacs
-(setq ri-ruby-script (expand-file-name "~/.emacs.d/plugins/ri-emacs/ri-emacs.rb"))
+(setq ri-ruby-script (expand-file-name "~/.emacs.d/sleemacs/plugins/ri-emacs/ri-emacs.rb"))
 ;(autoload 'ri (expand-file-name "~/.emacs.d/plugins/ri-emacs/ri-ruby.el") nil t)
-(load "~/.emacs.d/plugins/ri-emacs/ri-ruby.el")
+(load "~/.emacs.d/sleemacs/plugins/ri-emacs/ri-ruby.el")
 
 
 ;; ruby-mode-hook

@@ -1,3 +1,9 @@
+(defun untabify-buffer ()
+  "Untabify the entire buffer."
+  (interactive)
+  (untabify (point-min) (point-max))
+)
+
 ;; show ascii table
 ;; optained from http://www.chrislott.org/geek/emacs/dotemacs.html
 (defun ascii-table ()
@@ -11,4 +17,6 @@
       (setq i (+ i 1))
       (insert (format "%4d %c\n" i i))))
   (beginning-of-buffer))
+
+
 

@@ -1,12 +1,12 @@
-[submodule "emacs.d/plugins/yas/snippets/php-mode"]
-	path = emacs.d/plugins/yas/snippets/php-mode
+[submodule "plugins/yas/snippets/php-mode"]
+	path = plugins/yas/snippets/php-mode
 	url = https://github.com/Sliim/minimal-yasnippet-php-mode.git
-[submodule "emacs.d/plugins/php-mode"]
-	path = emacs.d/plugins/php-mode
+[submodule "plugins/php-mode"]
+	path = plugins/php-mode
 	url = https://github.com/ejmr/php-mode.git
-[submodule "emacs.d/plugins/php-plusmode"]
-	path = emacs.d/plugins/php-plusmode
-	url = https://github.com/echosa/phpplus-mode
-[submodule "emacs.d/plugins/auto-complete-etags"]
-	path = emacs.d/plugins/auto-complete-etags
+[submodule "plugins/phpplus-mode"]
+	path = plugins/phpplus-mode
+	url = https://github.com/echosa/phpplus-mode.git
+[submodule "plugins/auto-complete-etags"]
+	path = plugins/auto-complete-etags
 	url = https://github.com/whitypig/auto-complete-etags.git

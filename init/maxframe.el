@@ -1,5 +1,5 @@
 ;; maxframe
-(add-to-list  'load-path "~/.emacs.d/plugins/maxframe")
+(add-to-list  'load-path "~/.emacs.d/sleemacs/plugins/maxframe")
 (require 'maxframe)
 (add-hook 'window-setup-hook 'maximize-frame t)
 (add-hook 'window-setup-hook 'ecb-redraw-layout t)
