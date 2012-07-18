@@ -46,9 +46,8 @@
 (load-file "~/.emacs.d/sleemacs/init/git.el")
 (load-file "~/.emacs.d/sleemacs/init/functions.el")
 (load-file "~/.emacs.d/sleemacs/init/keybindings.el")
+(load-file "~/.emacs.d/sleemacs/init/etags-select.el")
 
-(add-to-list 'load-path "~/.emacs.d/sleemacs/plugins/etags-select")
-(require 'etags-select)
 
 
 
