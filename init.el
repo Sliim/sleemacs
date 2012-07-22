@@ -40,14 +40,10 @@
 (load-file "~/.emacs.d/sleemacs/init/anything.el")
 (load-file "~/.emacs.d/sleemacs/init/yasnippet.el")
 (load-file "~/.emacs.d/sleemacs/init/redo.el")
-(load-file "~/.emacs.d/sleemacs/init/ruby.el")
+(load-file "~/.emacs.d/sleemacs/init/etags-select.el")
 (load-file "~/.emacs.d/sleemacs/init/auto-complete.el")
 (load-file "~/.emacs.d/sleemacs/init/php.el")
+(load-file "~/.emacs.d/sleemacs/init/ruby.el")
 (load-file "~/.emacs.d/sleemacs/init/git.el")
 (load-file "~/.emacs.d/sleemacs/init/functions.el")
 (load-file "~/.emacs.d/sleemacs/init/keybindings.el")
-(load-file "~/.emacs.d/sleemacs/init/etags-select.el")
-
-
-
-

@@ -16,10 +16,7 @@
 (setq php-manual-path "~/.emacs.d/php-manual")
 
 (add-hook  'php-mode-hook
-           (lambda ()
-               (make-variable-buffer-local 'ac-sources)
-               (add-to-list 'ac-sources 'ac-source-php-completion)
-               ;; if you like patial match,
-               ;; use `ac-source-php-completion-patial' instead of `ac-source-php-completion'.
-               ;;(add-to-list 'ac-sources 'ac-source-php-completion-patial)
-               (auto-complete-mode t)))
+    (lambda ()
+        (add-to-list 'ac-sources 'ac-source-php-completion)
+        ;(add-to-list 'ac-sources 'ac-source-php-completion-patial)
+        (auto-complete-mode t)))

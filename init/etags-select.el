@@ -2,4 +2,4 @@
 (add-to-list 'load-path "~/.emacs.d/sleemacs/plugins/etags-select")
 (require 'etags-select)
 
-(global-set-key (kbd "C-c C-f") 'etags-select-find-tag)
+(global-set-key (kbd "C-c C-t") 'etags-select-find-tag)
