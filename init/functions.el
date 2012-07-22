@@ -18,5 +18,8 @@
       (insert (format "%4d %c\n" i i))))
   (beginning-of-buffer))
 
-
+(defun update-tags ()
+  "Update tags table"
+  (interactive)
+  (shell-command "updateTags"))
 
