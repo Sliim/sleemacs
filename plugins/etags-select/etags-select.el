@@ -138,6 +138,12 @@ Only works with GNU Emacs."
   :group 'etags-select-mode
   :type 'boolean)
 
+;;;###autoload
+(defcustom etags-select-extended-matches nil
+  "*If non-nil, search for extended matches."
+  :group 'etags-select-mode
+  :type 'boolean)
+
  ;;; Variables
 
 (defvar etags-select-buffer-name "*etags-select*"
@@ -180,6 +186,43 @@ Only works with GNU Emacs."
         (tag-regex (concat "^.*?\\(" "\^?\\(.+[:.']" tagname "\\)\^A"
                            "\\|" "\^?" tagname "\^A"
                            "\\|" "\\<" tagname "[ \f\t()=,;]*\^?[0-9,]"
+                           "\\)"))
+        (case-fold-search (etags-select-case-fold-search))
+        full-tagname tag-line filename current-filename)
+    (set-buffer tag-table-buffer)
+    (modify-syntax-entry ?_ "w")
+    (goto-char (point-min))
+    (while (search-forward tagname nil t)
+      (beginning-of-line)
+      (when (re-search-forward tag-regex (point-at-eol) 'goto-eol)
+        (setq full-tagname (or (etags-select-match-string 2) tagname))
+        (setq tag-count (1+ tag-count))
+        (beginning-of-line)
+        (re-search-forward "\\s-*\\(.*?\\)\\s-*\^?")
+        (setq tag-line (etags-select-match-string 1))
+        (end-of-line)
+        (save-excursion
+          (re-search-backward "\f")
+          (re-search-forward "^\\(.*?\\),")
+          (setq filename (etags-select-match-string 1))
+          (unless (file-name-absolute-p filename)
+            (setq filename (concat tag-file-path filename))))
+        (save-excursion
+          (set-buffer etags-select-buffer-name)
+          (when (not (string= filename current-filename))
+            (insert "\nIn: " filename "\n")
+            (setq current-filename filename))
+          (insert (int-to-string tag-count) " [" full-tagname "] " tag-line "\n"))))
+    (modify-syntax-entry ?_ "_")
+    tag-count))
+
+(defun etags-select-insert-matches-extended (tagname tag-file tag-count)
+  "Insert extended matches to tagname in tag-file."
+  (let ((tag-table-buffer (etags-select-get-tag-table-buffer tag-file))
+        (tag-file-path (file-name-directory tag-file))
+            (tag-regex (concat "^.*?\\(" "\^?\\(.+[:.'].*" tagname ".*\\)\^A"
+                           "\\|" "\^?.*" tagname ".*\^A"
+                           "\\|" "\\<.*" tagname ".*[ \f\t()=,;]*\^?[0-9,]"
                            "\\)"))
         (case-fold-search (etags-select-case-fold-search))
         full-tagname tag-line filename current-filename)
@@ -297,9 +340,13 @@ to do."
     (setq buffer-read-only nil)
     (erase-buffer)
     (insert "Finding tag: " tagname "\n")
-    (mapcar (lambda (tag-file)
-              (setq tag-count (etags-select-insert-matches tagname tag-file tag-count)))
+    (if etags-select-extended-matches
+        (mapcar (lambda (tag-file)
+              (setq tag-count (etags-select-insert-matches-extended tagname tag-file tag-count)))
             tag-files)
+      (mapcar (lambda (tag-file)
+              (setq tag-count (etags-select-insert-matches tagname tag-file tag-count)))
+            tag-files))
     (cond ((= tag-count 0)
            (message (concat "No matches for tag \"" tagname "\""))
            (ding))
