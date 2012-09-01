@@ -11,6 +11,7 @@
 (global-set-key (kbd "C-c e") 'ecb-goto-window-edit1)
 (global-set-key (kbd "C-c h") 'ecb-goto-window-history)
 (global-set-key (kbd "C-c s") 'ecb-goto-window-sources)
+(global-set-key (kbd "C-c m") 'ecb-goto-window-methods)
 
 (global-set-key (kbd "C-c C-,") 'ecb-show-ecb-windows)
 (global-set-key (kbd "C-c C-;") 'ecb-hide-ecb-windows)

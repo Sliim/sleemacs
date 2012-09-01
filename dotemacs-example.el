@@ -23,3 +23,4 @@
  '(phpcs-standard "Sliim")
  '(phpunit-shell-command "/usr/bin/phpunit")
  '(etags-select-extended-matches t))
+(put 'scroll-left 'disabled nil)
