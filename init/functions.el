@@ -23,3 +23,8 @@
   (interactive)
   (shell-command "updateTags"))
 
+;; Emacs configuration reloader
+(defun reload-emacs-config ()
+  "reload your .emacs file without restarting Emacs"
+  (interactive)
+  (load-file "~/.emacs"))
