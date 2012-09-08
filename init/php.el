@@ -18,5 +18,23 @@
 (add-hook  'php-mode-hook
     (lambda ()
         (add-to-list 'ac-sources 'ac-source-php-completion)
-        ;(add-to-list 'ac-sources 'ac-source-php-completion-patial)
         (auto-complete-mode t)))
+
+;;; Function that open project and read project desktop
+(defun project-open ()
+  (interactive)
+  "Function that open project and read project desktop"
+  (let ((project (php-project-ask-for-project "Project: ")))
+    (php-project-dired-directory project)
+    (when (file-exists-p (concat (php-project-directory project) "/.emacs/"))
+      (cd (concat (php-project-directory project) ".emacs/"))
+      (when (file-exists-p (concat (php-project-directory project) "/.emacs/.emacs.desktop"))
+        (desktop-read)))))
+
+;;; Function that save current desktop in .emacs's project dir
+(defun project-save-desktop ()
+  (interactive)
+  "Function that save current desktop in .emacs's project dir"
+  (let ((project (php-project-ask-for-project "Project: ")))
+    (when (file-exists-p (concat (php-project-directory project) "/.emacs/"))
+      (desktop-save (concat (php-project-directory project) ".emacs/")))))
