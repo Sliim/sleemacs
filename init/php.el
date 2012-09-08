@@ -20,16 +20,19 @@
         (add-to-list 'ac-sources 'ac-source-php-completion)
         (auto-complete-mode t)))
 
-;;; Function that open project and read project desktop
+;;; Function that open project, load snippets and read project desktop if exists
 (defun project-open ()
   (interactive)
-  "Function that open project and read project desktop"
+  "Function that open project, load snippets and read project desktop"
   (let ((project (php-project-ask-for-project "Project: ")))
     (php-project-dired-directory project)
     (when (file-exists-p (concat (php-project-directory project) "/.emacs/"))
       (cd (concat (php-project-directory project) ".emacs/"))
-      (when (file-exists-p (concat (php-project-directory project) "/.emacs/.emacs.desktop"))
-        (desktop-read)))))
+      (when (file-exists-p "./snippets/")
+        (setq yas/root-directory '("./snippets"))
+        (mapc 'yas/load-directory yas/root-directory))
+      (when (file-exists-p "./.emacs.desktop"))
+        (desktop-read))))
 
 ;;; Function that save current desktop in .emacs's project dir
 (defun project-save-desktop ()
