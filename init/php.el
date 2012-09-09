@@ -13,12 +13,20 @@
 (require 'php-project)
 (require 'php-tags)
 
-(setq php-manual-path "~/.emacs.d/php-manual")
+(setq php-manual-path "~/.emacs.d/sleemacs/php-manual")
 
-(add-hook  'php-mode-hook
-    (lambda ()
-        (add-to-list 'ac-sources 'ac-source-php-completion)
-        (auto-complete-mode t)))
+;;; Function to be called when entering into php-mode
+(defun my-php-mode-hook-func ()
+  (interactive)
+  "Function to be called when entering into php-mode."
+  (when (and (require 'auto-complete nil t) (require 'auto-complete-config nil t))
+    (make-local-variable 'ac-sources)
+    (setq ac-sources '(ac-source-words-in-same-mode-buffers
+                       ac-source-dictionary
+                       ac-source-php-completion))
+    (when (require 'auto-complete-etags nil t)
+      (add-to-list 'ac-sources 'ac-source-etags))
+    (auto-complete-mode t)))
 
 ;;; Function that open project, load snippets and read project desktop if exists
 (defun project-open ()
@@ -41,3 +49,5 @@
   (let ((project (php-project-ask-for-project "Project: ")))
     (when (file-exists-p (concat (php-project-directory project) "/.emacs/"))
       (desktop-save (concat (php-project-directory project) ".emacs/")))))
+
+(add-hook 'php-mode-hook 'my-php-mode-hook-func)
