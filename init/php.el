@@ -50,4 +50,24 @@
     (when (file-exists-p (concat (php-project-directory project) "/.emacs/"))
       (desktop-save (concat (php-project-directory project) ".emacs/")))))
 
+;;; Function that update project tags
+(defun project-update-tags ()
+  (interactive)
+  "Function that update project tags"
+  (let ((project (php-project-ask-for-project "Project: ")))
+    (when (file-exists-p (concat (php-project-directory project) "/.emacs/"))
+      (let ((command (concat "ctags-exuberant -R -e \
+          -o " (concat (php-project-directory project) ".emacs/TAGS") " \
+          --languages=PHP \
+          --exclude=\"\.git\" \
+          --totals=yes \
+          --tag-relative=yes \
+          --PHP-kinds=-v \
+          --regex-PHP='/abstract class ([^ ]*)/\1/c/' \
+          --regex-PHP='/trait ([^ ]*)/\1/c/' \
+          --regex-PHP='/interface ([^ ]*)/\1/c/' \
+          --regex-PHP='/(public |final |static |abstract |protected |private )+function ([^ (]*)/\2/f/' \
+	      --regex-PHP='/const ([^ ]*)/\1/d/' " (php-project-directory project))))
+    (shell-command command)))))
+
 (add-hook 'php-mode-hook 'my-php-mode-hook-func)
