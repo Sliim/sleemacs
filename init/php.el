@@ -28,7 +28,7 @@
       (add-to-list 'ac-sources 'ac-source-etags))
     (auto-complete-mode t)))
 
-;;; Function that open project, load snippets and read project desktop if exists
+;;; Function that open project, load snippets, visit tags table and read project desktop if exists
 (defun project-open ()
   (interactive)
   "Function that open project, load snippets and read project desktop"
@@ -39,8 +39,11 @@
       (when (file-exists-p "./snippets/")
         (setq yas/root-directory '("./snippets"))
         (mapc 'yas/load-directory yas/root-directory))
-      (when (file-exists-p "./.emacs.desktop"))
-        (desktop-read))))
+      (when (file-exists-p "./TAGS")
+        (tags-reset-tags-tables)
+        (visit-tags-table "./TAGS"))
+      (when (file-exists-p "./.emacs.desktop")
+        (desktop-read)))))
 
 ;;; Function that save current desktop in .emacs's project dir
 (defun project-save-desktop ()

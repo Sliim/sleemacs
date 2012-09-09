@@ -1,4 +1,6 @@
-(visit-tags-table "~/tags/TAGS")
+(when (file-exists-p "~/tags/TAGS")
+  (visit-tags-table "~/tags/TAGS"))
+
 (add-to-list 'load-path "~/.emacs.d/sleemacs/plugins/etags-select")
 (require 'etags-select)
 
