@@ -7,6 +7,3 @@
 [submodule "plugins/phpplus-mode"]
 	path = plugins/phpplus-mode
 	url = https://github.com/echosa/phpplus-mode.git
-[submodule "plugins/auto-complete-etags"]
-	path = plugins/auto-complete-etags
-	url = https://github.com/whitypig/auto-complete-etags.git
