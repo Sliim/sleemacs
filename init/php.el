@@ -37,7 +37,7 @@
     (when (file-exists-p (concat (php-project-directory project) "/.emacs/"))
       (cd (concat (php-project-directory project) ".emacs/"))
       (when (file-exists-p "./snippets/")
-        (setq yas/root-directory '("./snippets"))
+        (add-to-list 'yas/root-directory "./snippets")
         (mapc 'yas/load-directory yas/root-directory))
       (when (file-exists-p "./TAGS")
         (tags-reset-tags-tables)
