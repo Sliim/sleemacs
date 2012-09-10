@@ -6,7 +6,7 @@
 
 (setq yas/root-directory '(
                            "~/.emacs.d/sleemacs/plugins/yasnippet/snippets"
-                           "~/.emacs.d/sleemacs/plugins/yas/snippets/php-mode"
+                           "~/.emacs.d/sleemacs/snippets/default"
                           )
 )
 

@@ -1,0 +1,23 @@
+#contributor : Satoshi Nishimura <nishim314@gmail.com>
+#contributor : Sliim <sliim@mailoo.org>
+#name : Default: comments & class ...
+#group : definitions
+# --
+/**
+ * ${1:description}
+ *
+ * @category ${2:category}
+ * @package  ${3:package}
+ */
+class ${4:`(file-name-nondirectory (file-name-sans-extension (buffer-file-name)))`}
+{
+   /**
+    * $4 Constructor
+    *
+    * @return void
+    */
+   public function ${5:__construct}()
+   {
+      $0
+   }
+}

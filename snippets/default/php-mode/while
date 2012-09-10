@@ -1,0 +1,8 @@
+#contributor : Satoshi Nishimura <nishim314@gmail.com>
+#contributor : Sliim <sliim@mailoo.org>
+#name : Default: while (...) {...}
+#group : control structure
+# --
+while (${1:condition}) {
+   $0
+}

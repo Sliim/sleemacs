@@ -1,0 +1,10 @@
+#contributor : Satoshi Nishimura <nishim314@gmail.com>
+#contributor : Sliim <sliim@mailoo.org>
+#name : Default: switch (...) {...}
+#group : control structure
+# --
+switch (${1:$var}) {
+case $2:
+    $0
+default:
+}

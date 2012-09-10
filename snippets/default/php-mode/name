@@ -1,0 +1,15 @@
+#contributor : Sliim <sliim@mailoo.org>
+#name : Default: namespace
+#group : definitions
+# --
+namespace ${7:`(mapconcat
+  'identity
+  (butlast
+    (split-string
+      ((lambda (a)
+        (substring a (1+ (let ((case-fold-search nil))
+                       (string-match "\\\\(/[A-Z][a-zA-Z0-9]+\\\\)+$" a )
+                       )))
+        )
+      (file-name-sans-extension (buffer-file-name))
+      ) "/")) "\\\")`};

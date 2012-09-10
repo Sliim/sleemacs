@@ -1,0 +1,14 @@
+#contributor : Sliim <sliim@mailoo.org>
+#name : Default: comments & trait ...
+#group : definitions
+# --
+/**
+ * ${1:description}
+ *
+ * @category ${2:category}
+ * @package  ${3:package}
+ */
+trait ${4:`(file-name-nondirectory (file-name-sans-extension (buffer-file-name)))`}
+{
+
+}

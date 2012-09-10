@@ -1,0 +1,9 @@
+#contributor : Satoshi Nishimura <nishim314@gmail.com>
+#contributor : Sliim <sliim@mailoo.org>
+#name : Default: protected function ...(...)
+#group : definitions
+# --
+protected function ${1:name}(${2:$args})
+{
+   $0
+}
