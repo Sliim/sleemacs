@@ -6,17 +6,16 @@
 /**
  * ${1:description}
  *
- * @category ${2:category}
- * @package  ${3:package}
+ * @package  ${2:package}
  */
-class ${4:`(file-name-nondirectory (file-name-sans-extension (buffer-file-name)))`}
+class ${3:`(file-name-nondirectory (file-name-sans-extension (buffer-file-name)))`}
 {
    /**
-    * $4 Constructor
+    * $3 Constructor
     *
     * @return void
     */
-   public function ${5:__construct}()
+   public function ${4:__construct}()
    {
       $0
    }
