@@ -1,6 +1,3 @@
-[submodule "plugins/yas/snippets/php-mode"]
-	path = plugins/yas/snippets/php-mode
-	url = https://github.com/Sliim/minimal-yasnippet-php-mode.git
 [submodule "plugins/php-mode"]
 	path = plugins/php-mode
 	url = https://github.com/ejmr/php-mode.git
