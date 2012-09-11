@@ -89,3 +89,6 @@
     (when (file-exists-p project-desktop-lock-file)
       (shell-command (concat "rm " project-desktop-lock-file))
       (message "Desktop lock file removed."))))
+
+;;; Hook that close current project when exit emacs
+(add-hook 'kill-emacs-hook (lambda () (project-close-current)))
