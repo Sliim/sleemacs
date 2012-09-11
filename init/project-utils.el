@@ -12,19 +12,20 @@
       (setq desktop-path '(concat (php-project-directory project) ".emacs/"))
       (setq desktop-dirname project-emacs-dir)
       (setq project-snippets-dir (concat project-emacs-dir "snippets/"))
-      (setq project-tags-file (concat project-emacs-dir "TAGS"))
 
       (when (file-exists-p project-snippets-dir)
         (message "Loading project's snippets..")
         (add-to-list 'yas/root-directory project-snippets-dir)
         (mapc 'yas/load-directory yas/root-directory))
-      (when (file-exists-p project-tags-file)
-        (message "Loading project's tags table..")
-        (tags-reset-tags-tables)
-        (visit-tags-table project-tags-file))
       (when (file-exists-p (concat project-emacs-dir ".emacs.desktop"))
         (message "Loading project's desktop..")
         (desktop-read)))
+
+    (when (and (/= (length (php-project-tags-file project)) 0)
+               (file-exists-p (php-project-tags-file project)))
+      (message "Loading project's tags table..")
+      (tags-reset-tags-tables)
+      (visit-tags-table (php-project-tags-file project)))
     (setq current-project project)
     (message (concat "Project " (php-project-nickname current-project) " opened."))))
 
@@ -43,9 +44,9 @@
   (interactive)
   "Function that update project tags"
   (if current-project
-      (when (file-exists-p (concat (php-project-directory current-project) "/.emacs/"))
+      (when (/= (length (php-project-tags-file current-project)) 0)
         (let ((command (concat "ctags-exuberant -R -e \
-          -o " (concat (php-project-directory current-project) ".emacs/TAGS") " \
+          -o " (php-project-tags-file current-project) " \
           --languages=PHP \
           --exclude=\"\.git\" \
           --totals=yes \
@@ -82,7 +83,6 @@
 
 ;;; Remove desktop lock file
 (defun project-desktop-remove-lock-file ()
-  (interactive)
   "Remove desktop lock file"
   (when current-project
     (setq project-desktop-lock-file (concat (php-project-directory current-project) ".emacs/.emacs.desktop.lock"))
