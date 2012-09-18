@@ -7,7 +7,7 @@
  *
  * @return ${2:void}
  */
-protected function ${3:name}(${4:$args})
+public function ${3:name}(${4:$args})
 {
    $0
 }
