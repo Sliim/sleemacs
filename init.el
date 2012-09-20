@@ -45,6 +45,7 @@
 (load-file "~/.emacs.d/sleemacs/init/php.el")
 (load-file "~/.emacs.d/sleemacs/init/ruby.el")
 (load-file "~/.emacs.d/sleemacs/init/git.el")
+(load-file "~/.emacs.d/sleemacs/init/grep.el")
 (load-file "~/.emacs.d/sleemacs/init/functions.el")
 (load-file "~/.emacs.d/sleemacs/init/project-utils.el")
 (load-file "~/.emacs.d/sleemacs/init/keybindings.el")
