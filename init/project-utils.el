@@ -19,7 +19,10 @@
         (mapc 'yas/load-directory yas/root-directory))
       (when (file-exists-p (concat project-emacs-dir ".emacs.desktop"))
         (message "Loading project's desktop..")
-        (desktop-read)))
+        (desktop-read))
+      (when (file-exists-p (concat project-emacs-dir "project-config.el"))
+        (message "Loading project's configuration..")
+        (load-file (concat project-emacs-dir "project-config.el"))))
 
     (when (and (/= (length (php-project-tags-file project)) 0)
                (file-exists-p (php-project-tags-file project)))
