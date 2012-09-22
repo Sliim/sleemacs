@@ -26,6 +26,7 @@
       (message "Loading project's tags table..")
       (tags-reset-tags-tables)
       (visit-tags-table (php-project-tags-file project)))
+    (setq grep-find-command (concat "find -L " (php-project-directory project) " -type f -print0 | xargs -0 -e grep -nH -e "))
     (setq current-project project)
     (message (concat "Project " (php-project-nickname current-project) " opened."))))
 
