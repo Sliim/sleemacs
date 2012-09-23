@@ -8,6 +8,11 @@
     (project-close-current)
     (php-project-dired-directory project)
     (setq project-emacs-dir (concat (php-project-directory project) ".emacs/"))
+    (when (and (/= (length (php-project-tags-file project)) 0)
+               (file-exists-p (php-project-tags-file project)))
+      (message "Loading project's tags table..")
+      (tags-reset-tags-tables)
+      (visit-tags-table (php-project-tags-file project)))
     (when (file-exists-p project-emacs-dir)
       (setq desktop-path '(concat (php-project-directory project) ".emacs/"))
       (setq desktop-dirname project-emacs-dir)
@@ -23,14 +28,9 @@
       (when (file-exists-p (concat project-emacs-dir "project-config.el"))
         (message "Loading project's configuration..")
         (load-file (concat project-emacs-dir "project-config.el"))))
-
-    (when (and (/= (length (php-project-tags-file project)) 0)
-               (file-exists-p (php-project-tags-file project)))
-      (message "Loading project's tags table..")
-      (tags-reset-tags-tables)
-      (visit-tags-table (php-project-tags-file project)))
     (setq grep-find-command (concat "find -L " (php-project-directory project) " -type f -print0 | xargs -0 -e grep -nH -e "))
     (setq current-project project)
+    (setq tags-completion-table nil)
     (message (concat "Project " (php-project-nickname current-project) " opened."))))
 
 ;;; Function that save current desktop in .emacs's project dir
@@ -62,6 +62,8 @@
           --regex-PHP='/(public |final |static |abstract |protected |private )+function ([^ (]*)/\2/f/' \
 	      --regex-PHP='/const ([^ ]*)/\1/d/' " (php-project-directory current-project))))
           (shell-command command))
+        (visit-tags-table (php-project-tags-file current-project))
+        (setq tags-completion-table nil)
         (message "Tags table updated."))
     (message "No project opened..")))
 
