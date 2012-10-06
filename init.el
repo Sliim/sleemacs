@@ -40,16 +40,19 @@
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 (setq c-basic-offset 4)
-
 (show-paren-mode t)
 (setq show-paren-style 'mixed)
+(put 'scroll-left 'disabled nil)
 
-(set-cursor-color "#00cc00")
 (delete-selection-mode t)
 (fset 'yes-or-no-p 'y-or-n-p)
 
 (add-hook 'write-file-hooks 'delete-trailing-whitespace)
 
+;;Appareance
+(set-cursor-color "#999999")
+(set-foreground-color "#999999")
+(set-scroll-bar-mode nil)
 (when window-system
   (set-background-color "black")
 )
