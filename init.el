@@ -77,3 +77,4 @@
 (load-file "~/.emacs.d/sleemacs/init/functions.el")
 (load-file "~/.emacs.d/sleemacs/init/project-utils.el")
 (load-file "~/.emacs.d/sleemacs/init/keybindings.el")
+(load-file "~/.emacs.d/sleemacs/init/emms.el")
