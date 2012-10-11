@@ -118,5 +118,13 @@
       (shell-command (concat "rm " project-desktop-lock-file))
       (message "Desktop lock file removed."))))
 
+;;; Overload desktop-clear to open current project directory when clearing desktop
+(defun project-clear-desktop ()
+  (interactive)
+  "Overload desktop-clear to open current project directory when clearing desktop"
+  (desktop-clear)
+  (when current-project
+    (php-project-dired-directory current-project)))
+
 ;;; Hook that close current project when exit emacs
 (add-hook 'kill-emacs-hook (lambda () (project-close-current)))
