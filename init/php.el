@@ -51,3 +51,8 @@
     (auto-complete-mode t)))
 
 (add-hook 'php-mode-hook 'my-php-mode-hook-func)
+
+;;Indent switch/case
+(add-hook 'php-mode-hook
+          (lambda ()
+             (c-set-offset 'case-label '+)))
