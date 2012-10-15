@@ -1,0 +1,5 @@
+#contributor : Sliim <sliim@mailoo.org>
+#name : Default: msg
+#group : Debugging
+# --
+error_log('DEBUG: ' . $0);

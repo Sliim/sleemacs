@@ -1,0 +1,5 @@
+#contributor : Sliim <sliim@mailoo.org>
+#name : Default: dbg
+#group : Debugging
+# --
+error_log('DEBUG: ' . var_export($0, true));
