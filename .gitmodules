@@ -10,3 +10,6 @@
 [submodule "plugins/emms"]
 	path = plugins/emms
 	url = git://git.sv.gnu.org/emms.git
+[submodule "plugins/geben"]
+	path = plugins/geben
+	url = https://github.com/blipvert/geben-svn.git
