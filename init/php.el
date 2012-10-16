@@ -29,11 +29,8 @@
 
 ;; PHP+-mode
 (add-to-list  'load-path "~/.emacs.d/sleemacs/plugins/phpplus-mode")
-;(require 'php+-mode)
-;(php+-mode-setup)
-(require 'php-test)
-(require 'php-project)
-(require 'php-tags)
+(require 'php+-mode)
+(php+-mode-setup)
 
 (setq php-manual-path "~/.emacs.d/sleemacs/php-manual")
 
@@ -55,7 +52,7 @@
 ;;Indent switch/case
 (add-hook 'php-mode-hook
           (lambda ()
-             (c-set-offset 'case-label '+)))
+            (c-set-offset 'case-label '+)))
 
 ;; Flymake php
 ;; Source: http://sachachua.com/blog/2008/07/emacs-and-php-on-the-fly-syntax-checking-with-flymake/
@@ -65,10 +62,10 @@
     (let* ((temp (flymake-init-create-temp-buffer-copy 'flymake-create-temp-inplace))
 	   (local (file-relative-name temp (file-name-directory buffer-file-name))))
       (list "php" (list "-f" local "-l"))))
-  
-  (add-to-list 'flymake-err-line-patterns 
+
+  (add-to-list 'flymake-err-line-patterns
 	       '("\\(Parse\\|Fatal\\) error: +\\(.*?\\) in \\(.*?\\) on line \\([0-9]+\\)$" 3 4 nil 2))
-  
+
   (add-to-list 'flymake-allowed-file-name-masks '("\\.php$" flymake-php-init))
 
   (add-hook 'php-mode-hook (lambda () (flymake-mode 1)))
