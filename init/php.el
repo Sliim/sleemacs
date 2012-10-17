@@ -20,17 +20,17 @@
 ;;
 ;;; Code:
 
+;; PHP+-mode
+(add-to-list  'load-path "~/.emacs.d/sleemacs/plugins/phpplus-mode")
+(require 'php+-mode)
+(php+-mode-setup)
+
 ;; PHP-Mode
 (add-to-list 'load-path "~/.emacs.d/sleemacs/plugins/php")
 (add-to-list 'load-path "~/.emacs.d/sleemacs/plugins/php-mode")
 (require 'php-mode)
 (require 'php-electric)
 (require 'php-completion)
-
-;; PHP+-mode
-(add-to-list  'load-path "~/.emacs.d/sleemacs/plugins/phpplus-mode")
-(require 'php+-mode)
-(php+-mode-setup)
 
 (setq php-manual-path "~/.emacs.d/sleemacs/php-manual")
 
