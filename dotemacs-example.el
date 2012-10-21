@@ -24,7 +24,7 @@
  '(ecb-options-version "2.40")
  '(ecb-show-sources-in-directories-buffer (quote ("left7" "left13" "left14" "left15" "sliim-layout")))
  '(ecb-primary-secondary-mouse-buttons (quote mouse-1--mouse-2))
- '(isearch ((((class color) (min-colors 88) (background dark)) (:background "green yellow" :foreground "black")
+ '(isearch ((((class color) (min-colors 88) (background dark)) (:background "green yellow" :foreground "black"))))
  '(php-annotations-annotation-face ((t (:inherit (quote font-lock-variable-name-face)))))
  '(etags-select-extended-matches t)
  '(global-auto-revert-mode t)
