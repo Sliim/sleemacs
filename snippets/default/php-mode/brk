@@ -1,5 +1,0 @@
-#contributor : Sliim <sliim@mailoo.org>
-#name : Default: brk
-#group : Debugging
-# --
-xdebug_break();

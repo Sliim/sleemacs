@@ -1,9 +1,0 @@
-#contributor : Satoshi Nishimura <nishim314@gmail.com>
-#contributor : Sliim <sliim@mailoo.org>
-#name : Default: private function ...(...)
-#group : definitions
-# --
-private function ${1:name}(${2:$args})
-{
-   $0
-}

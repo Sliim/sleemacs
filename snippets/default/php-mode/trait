@@ -1,8 +1,0 @@
-#contributor : Sliim <sliim@mailoo.org>
-#name : Default: trait ...
-#group : definitions
-# --
-trait ${1:`(file-name-nondirectory (file-name-sans-extension (buffer-file-name)))`}
-{
-    $0
-}
