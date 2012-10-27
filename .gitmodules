@@ -13,3 +13,6 @@
 [submodule "plugins/geben"]
 	path = plugins/geben
 	url = https://github.com/blipvert/geben-svn.git
+[submodule "snippets/default"]
+	path = snippets/default
+	url = https://github.com/Sliim/my-snippets.git
