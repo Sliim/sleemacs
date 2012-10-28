@@ -22,7 +22,11 @@ done
 
 mv $TMPFILE $INITFILE
 
-emacs --execute "(byte-compile-file \"$INITFILE\")" --execute "(save-buffers-kill-emacs)"
+emacs \
+    --load $INITFILE \
+    --execute "(byte-compile-file \"$INITFILE\")" \
+    --execute "(setq confirm-kill-emacs nil)" \
+    --execute "(save-buffers-kill-emacs)"
 git checkout $INITFILE
 
 echo "Compiled in ${INITFILE}c."

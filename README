@@ -1,0 +1,18 @@
+Sleemacs is my emacs23 configuration.
+If you use emacs24, i suggest you take a look to the prelude project (https://github.com/bbatsov/prelude).
+
+Install
+=======
+
+$ git clone https://github.com/Sliim/sleemacs.git --recursive
+$ ln -s <path_to_sleemacs> ~/.emacs.d/sleemacs
+
+Add in your `~/.emacs`:
+(load-file "~/.emacs.d/sleemacs/init.el")
+
+You can compile all the init file with compile.sh script.
+Just cd to sleemacs directory and run:
+$ ./compile.sh
+
+Now you can load init.elc instead init.el:
+(load-file "~/.emacs.d/sleemacs/init.elc")
